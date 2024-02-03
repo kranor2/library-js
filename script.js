@@ -1,4 +1,8 @@
 const myLibrary = [];
+let title;
+let author;
+let pages;
+let read;
 
 // step 2 - add object constructor, add each object to myLibrary
 
@@ -7,13 +11,6 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-}
-
-function addBookToLibrary() {
-    const book = new Book(title, author, pages, read)
-    myLibrary.push(book);
-    console.log(myLibrary);
-    console.log(myLibrary.indexOf(book));
 }
 
 // prevent default - enable use of dialog form method
@@ -33,7 +30,10 @@ function addBook() {
     const read = document.getElementById("read").checked;
     const index = myLibrary.length;
 
-    addBookToLibrary();
+    let addBookToLibrary = new Book(title, author, pages, read, index);
+    myLibrary.push(addBookToLibrary)
+    document.getElementById("add-book").reset();
+    displayBook();
 }
 
 // step 3 - loop through array and display each book on the page
