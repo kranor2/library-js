@@ -1,5 +1,3 @@
-let entry;
-
 const myLibrary = [];
 
 // step 2 - add object constructor, add each object to myLibrary
@@ -56,5 +54,13 @@ function displayBook() {
         <button type="button" class="rmv-btn" data-index="${i}><i class="material-icons">delete</i></button></div>`
         ;
         shelf.insertBefore(listing, shelf.firstChild);
+    }
+    const removeBtns = document.getElementsByClassName("rmv-btn");
+    for (let btn of removeBtns) {
+        btn.addEventListener("click", function() {
+            const index = this.getAttribute("data-index");
+            myLibrary.splice(index, 1);
+            displayBook();
+        });
     }
 }
