@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kranor2 | Library</title>
-    <link rel="stylesheet" src="style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">    
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
             <div class="logo">
-                <div>img</div>
-                <p>Rhett's Library</p>
+                <img src="assets/dino-logo.png">
+                <h1>Rhett's Library</h1>
             </div>
             <div class="formbox">
                 <form id="add-book" action="" method="" autocomplete="off">
@@ -29,7 +32,7 @@
                         <input type="tel" id= "pages" name="pages" required><br>
                     </div>
                     <div class="bottom">
-                        <div class="input-row read">
+                        <div class="input-row-read">
                             <label for="read">Read</label>
                             <input type="checkbox" name="read" id="read"><br>
                         </div>
@@ -40,7 +43,7 @@
             </div>
         </div>
         <div class="content">
-            <p>Shelves</p>
+            <h2>Shelves</h2>
             <div id="shelf"></div>
         </div>
     </div>

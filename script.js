@@ -46,12 +46,12 @@ function displayBook() {
         listing.className = "listing";
         const book = myLibrary[i];
         listing.innerHTML = `
-        <div class-"listing-start">
+        <div class= "listing-start">
         <h2>${book.title}</h2>
-        <p>Author: ${book.author}</p>
-        <p>Pages: ${book.pages}</p></div>
-        <div class="listing-end"><p>Read: ${book.read ? `<input type="checkbox" id="read" checked>` : `<input type="checkbox" id="unread">`}</p>
-        <button type="button" class="rmv-btn" data-index="${i}><i class="material-icons">delete</i></button></div>`
+        <p>Author:  ${book.author}</p>
+        <p>Pages:  ${book.pages}</p></div>
+        <div class="listing-end"><p class="status">Read:  ${book.read ? `<input type="checkbox" id="read" checked>` : `<input type="checkbox" id="unread">`}</p>
+        <button type="button" class="rmv-btn" data-index="${i}"><i class="material-icons">delete</i></button></div>`    
         ;
         shelf.insertBefore(listing, shelf.firstChild);
     }

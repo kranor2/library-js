@@ -1,0 +1,175 @@
+:root {
+    --theme-dark: #2d2a2a;
+    --theme-fontcolor: #c2c2c6;
+    --theme-accentblue: #0b3545;
+    --theme-req: #a14830;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea,html input[type="button"],
+input[type="reset"],
+input[type="submit"],button[disabled],
+html input[disabled],button::-moz-focus-inner,
+input::-moz-focus-inner, input[type="checkbox"],
+input[type="radio"], input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button, input[type="search"], input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration{
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+body {
+    background-image: url("assets/pexels-willian-santos-7443909.jpg");
+    background-size: 90%;
+    background-repeat: none;
+    background-position: bottom; 
+}
+
+h1 {
+    color: white;
+    font-size: 2.25rem;
+    font-family: "IM Fell Great Primer SC", Georgia, Times, "Times New Roman", serif;
+}
+
+h2 {
+    color: white;
+    font-size: 1.75rem;
+    font-family: "IM Fell Great Primer SC", Georgia, Times, "Times New Roman", serif;
+}
+
+p, label {
+    color: var(--theme-fontcolor);
+    font-family: "IM Fell English", Georgia, Times, "Times New Roman", serif;
+}
+
+input {
+    background-color: #d9ddda;
+    font-family: "IM Fell English", Georgia, Times, "Times New Roman", serif;
+    color: var(--theme-dark);
+    width: 14vw;
+    border-radius: 0.25em;
+}
+
+form {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+button {
+    background-color: var(--theme-accentblue);
+    margin-top: 1em;
+    width: 3em;
+    height: 2em;
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.material-icons {
+    filter: brightness(0) invert(1);
+}
+
+button:hover, button:focus {
+    background-color: var(--theme-req);
+    box-shadow: 0 0.5em 0.5em -0.4em var(--theme-req);
+    transform: translateY(-0.25em);
+}
+
+label, .read {
+    cursor: pointer;
+}
+
+.container {
+    max-height: 100vh;
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.sidebar {
+    background-color: rgba(45, 42, 42, 0.5);
+    height: 100vh;
+    padding: 1em;
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    align-items: start;
+    gap: 2vh;
+}
+
+.logo {
+    width: 10vw;
+    height: 6vh;
+    min-width: fit-content;
+    display: grid; 
+    grid-template-columns: 1fr 4fr;
+    gap: 1.5vw;
+    align-items: center;
+    justify-items: start;
+}
+
+.logo img {
+    filter: brightness(0) invert(1);
+    height: 7vh;
+    width: auto;
+    object-fit: cover;
+}
+
+.formbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    padding: 2em;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+#shelf {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-flow: column;
+    gap: 1em;
+    justify-items: start;
+    align-items: start;
+    overflow: scroll;
+}
+
+.listing {
+    background-color: rgba(45, 42, 42, 0.5);
+    width: 10vw;
+    height: 18vh;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    border-radius: 1em;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
