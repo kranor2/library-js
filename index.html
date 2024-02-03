@@ -13,12 +13,35 @@
                 <div>img</div>
                 <p>Rhett's Library</p>
             </div>
+            <div class="formbox">
+                <form id="add-book" action="" method="" autocomplete="off">
+                    <div class="input-row">
+                        <label for="book-title">Book Title</label><br>
+                        <input type="text" id="book-title" name="book-title" required><br>
+                    </div>
+                    <div class="input-row">
+                        <label for="author">Author</label><br>
+                        <input type="text" id="author" name="author" required><br>
+                    </div>
+                    <div class="input-row">
+                        <label for="pages">Pages</label><br>
+                        <input type="tel" id= "pages" name="pages" required><br>
+                    </div>
+                    <div class="bottom">
+                        <div class="input-row read">
+                            <label for="read">Read</label>
+                            <input type="checkbox" name="read" id="read"><br>
+                        </div>
+                        <button type="submit" title="Add book" id="submit"><i class="material-icons">add</i></button>
+                    </div>
+                    <input autocomplete="false" name="hidden" type="text" style="display:none;">
+                </form>
+            </div>
         </div>
         <div class="content">
             <p>Shelves</p>
             <div id="shelf"></div>
         </div>
-
     </div>
     
     <script src="script.js"></script>
