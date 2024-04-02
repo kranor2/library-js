@@ -1,8 +1,16 @@
 const myLibrary = [];
-let title;
-let author;
-let pages;
-let read;
+const form = document.querySelector("form");
+const title = document.getElementById("book-title").value;
+const titleInput = document.getElementById("book-title");
+const author = document.getElementById("author").value;
+const authorInput = document.getElementById("author");
+const pages = document.getElementById("pages").value;
+const pagesInput = document.getElementById("pages");
+const read = document.getElementById("read").checked;
+const index = myLibrary.length;
+const titleErrorMsg = document.getElementById("title-error");
+const authorErrorMsg = document.getElementById("author-error");
+const pagesErrorMsg = document.getElementById("pages-error");
 
 // step 2 - add object constructor, add each object to myLibrary
 
@@ -24,16 +32,85 @@ document.getElementById("add-book").addEventListener("submit", function(event) {
 
 function addBook() {
     console.log("addBook function called");
-    const title = document.getElementById("book-title").value;
-    const author = document.getElementById("author").value;
-    const pages = document.getElementById("pages").value;
-    const read = document.getElementById("read").checked;
-    const index = myLibrary.length;
 
     let addBookToLibrary = new Book(title, author, pages, read, index);
     myLibrary.push(addBookToLibrary)
     document.getElementById("add-book").reset();
     displayBook();
+}
+
+// refactor => add form validation
+
+form.addEventListener("submit", (event) => {
+    if (!titleInput.validity.valid) {
+        titleError();
+        event.preventDefault();
+    } else if (!authorInput.validity.valid) {
+        authorError();
+        event.preventDefault();
+    } else if (!pagesInput.validity.valid) {
+        pagesError();
+        event.preventDefault();
+    }
+});
+
+titleInput.addEventListener("input", (event) => {
+    if (titleInput.validity.valid) {
+        titleErrorMsg.textContent = "";
+        titleErrorMsg.className = "error";
+    } else {
+        titleError();
+    }
+});
+
+function titleError() {
+    if (titleInput.validity.valueMissing) {
+        titleErrorMsg.textContent = "What is the title of the book?";
+    } else if (titleInput.validity.tooShort) {
+        titleErrorMsg.textContent = "Please enter the complete title of the book.";
+    }
+
+    titleErrorMsg.className = "error active";
+}
+
+authorInput.addEventListener("input", (event) => {
+    if (authorInput.validity.valid) {
+        authorErrorMsg.textContent = "";
+        authorErrorMsg.className = "error"
+    } else {
+        authorError();
+    }
+})
+
+function authorError() {
+    if (authorInput.validity.valueMissing) {
+        authorErrorMsg.textContent = "What is the author's name?";
+    } else if (authorInput.validity.tooShort) {
+        authorErrorMsg.textContent = "Please enter the author's full name.";
+    }
+
+    authorErrorMsg.className = "error active";
+}
+
+pagesInput.addEventListener("input", (event) => {
+    if (pagesInput.validity.valid) {
+        pagesErrorMsg.textContent = "";
+        pagesErrorMsg.className = "error";
+    } else {
+        pagesError();
+    }
+});
+
+function pagesError() {
+    if (pagesInput.validity.valueMissing) {
+        pagesErrorMsg.textContent = "How many pages does this book/edition have?";
+    } else if (pagesInput.value = "0") {
+        pagesErrorMsg.textContent = "Please enter a valid number of pages.";
+    } else if (pagesInput.validity.typeMismatch) {
+        pagesErrorMsg.textContent = "Please enter a number.";  
+    }
+
+    pagesErrorMsg.className = "error active";
 }
 
 // step 3 - loop through array and display each book on the page
