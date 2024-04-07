@@ -41,77 +41,38 @@ function addBook() {
 
 // refactor => add form validation
 
-form.addEventListener("submit", (event) => {
-    if (!titleInput.validity.valid) {
-        titleError();
-        event.preventDefault();
-    } else if (!authorInput.validity.valid) {
-        authorError();
-        event.preventDefault();
-    } else if (!pagesInput.validity.valid) {
-        pagesError();
-        event.preventDefault();
-    }
-});
-
 titleInput.addEventListener("input", (event) => {
-    if (titleInput.validity.valid) {
-        titleErrorMsg.textContent = "";
-        titleErrorMsg.className = "error";
-    } else {
-        titleError();
-    }
-});
-
-function titleError() {
     if (titleInput.validity.valueMissing) {
-        titleErrorMsg.textContent = "What is the title of the book?";
+        titleInput.setCustomValidity("Please enter the title of the book.");
     } else if (titleInput.validity.tooShort) {
-        titleErrorMsg.textContent = "Please enter the complete title of the book.";
+        titleInput.setCustomValidity("Please enter the full title of the book.");
+    } else {
+        titleInput.setCustomValidity("");
     }
-
-    titleErrorMsg.className = "error active";
-}
+});    
 
 authorInput.addEventListener("input", (event) => {
-    if (authorInput.validity.valid) {
-        authorErrorMsg.textContent = "";
-        authorErrorMsg.className = "error"
-    } else {
-        authorError();
-    }
-})
-
-function authorError() {
     if (authorInput.validity.valueMissing) {
-        authorErrorMsg.textContent = "What is the author's name?";
+        authorInput.setCustomValidity("Please enter the author's name.");
     } else if (authorInput.validity.tooShort) {
-        authorErrorMsg.textContent = "Please enter the author's full name.";
-    }
-
-    authorErrorMsg.className = "error active";
-}
-
-pagesInput.addEventListener("input", (event) => {
-    if (pagesInput.validity.valid) {
-        pagesErrorMsg.textContent = "";
-        pagesErrorMsg.className = "error";
-    } else {
-        pagesError();
+        authorInput.setCustomValidity("Please enter the author's full name.");
+    } 
+    else {
+        authorInput.setCustomValidity("");
     }
 });
 
-function pagesError() {
+pagesInput.addEventListener("input", (event) => {
     if (pagesInput.validity.valueMissing) {
-        pagesErrorMsg.textContent = "How many pages does this book/edition have?";
-    } else if (pagesInput.value = "0") {
-        pagesErrorMsg.textContent = "Please enter a valid number of pages.";
+        pagesInput.setCustomValidity("Please enter the number of pages in this book.");
     } else if (pagesInput.validity.typeMismatch) {
-        pagesErrorMsg.textContent = "Please enter a number.";  
+        pagesInput.setCustomValidity("This field must contain a number.");
+    } else if (pagesInput.validity.rangeUnderflow) {
+        pagesInput.setCustomValidity("This number must be greater than 1.");
+    } else {
+        pagesInput.setCustomValidity("");
     }
-
-    pagesErrorMsg.className = "error active";
-}
+});
 
 // step 3 - loop through array and display each book on the page
 

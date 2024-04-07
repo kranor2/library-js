@@ -22,17 +22,14 @@
                     <div class="input-row">
                         <label for="book-title">Book Title</label><br>
                         <input type="text" id="book-title" name="book-title" required minlength="2"><br>
-                        <span class="error" id="title-error" aria-live="polite"></span>
                     </div>
                     <div class="input-row">
                         <label for="author">Author</label><br>
                         <input type="text" id="author" name="author" required minlength="3"><br>
-                        <span class="error" id="author-error" aria-live="polite"></span>
                     </div>
                     <div class="input-row">
                         <label for="pages">Pages</label><br>
-                        <input type="tel" id= "pages" name="pages" required><br>
-                        <span class="error" id="pages-error" aria-live="polite"></span>
+                        <input type="number" id= "pages" name="pages" min="1" required><br>
                     </div>
                     <div class="bottom">
                         <div class="input-row-read">
@@ -52,5 +49,6 @@
     </div>
     
     <script src="script.js"></script>
+    <script src="validate.js"></script>
 </body>
 </html>
